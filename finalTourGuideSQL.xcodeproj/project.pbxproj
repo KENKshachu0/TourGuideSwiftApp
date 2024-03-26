@@ -14,6 +14,10 @@
 		BB1C0D722BB2FE1000F0E4CE /* finalTourGuideSQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C0D712BB2FE1000F0E4CE /* finalTourGuideSQLTests.swift */; };
 		BB1C0D7C2BB2FE1000F0E4CE /* finalTourGuideSQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C0D7B2BB2FE1000F0E4CE /* finalTourGuideSQLUITests.swift */; };
 		BB1C0D7E2BB2FE1000F0E4CE /* finalTourGuideSQLUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C0D7D2BB2FE1000F0E4CE /* finalTourGuideSQLUITestsLaunchTests.swift */; };
+		BB42B3632BB302B30065A8A1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3622BB302B30065A8A1 /* DatabaseManager.swift */; };
+		BB42B3652BB305330065A8A1 /* imageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3642BB305330065A8A1 /* imageManager.swift */; };
+		BB42B3672BB305EE0065A8A1 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */; };
+		BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		BB1C0D772BB2FE1000F0E4CE /* finalTourGuideSQLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalTourGuideSQLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1C0D7B2BB2FE1000F0E4CE /* finalTourGuideSQLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalTourGuideSQLUITests.swift; sourceTree = "<group>"; };
 		BB1C0D7D2BB2FE1000F0E4CE /* finalTourGuideSQLUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalTourGuideSQLUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB42B3602BB302840065A8A1 /* SQLite.swift-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SQLite.swift-master"; path = "../../SQLite.swift-master"; sourceTree = "<group>"; };
+		BB42B3622BB302B30065A8A1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		BB42B3642BB305330065A8A1 /* imageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageManager.swift; sourceTree = "<group>"; };
+		BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenicSpotDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				BB1C0D602BB2FE0F00F0E4CE /* finalTourGuideSQLApp.swift */,
+				BB42B3622BB302B30065A8A1 /* DatabaseManager.swift */,
 				BB1C0D622BB2FE0F00F0E4CE /* ContentView.swift */,
+				BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */,
+				BB42B3642BB305330065A8A1 /* imageManager.swift */,
+				BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */,
 				BB1C0D642BB2FE1000F0E4CE /* Assets.xcassets */,
 				BB1C0D662BB2FE1000F0E4CE /* Preview Content */,
 			);
@@ -123,6 +136,7 @@
 			children = (
 				BB1C0D7B2BB2FE1000F0E4CE /* finalTourGuideSQLUITests.swift */,
 				BB1C0D7D2BB2FE1000F0E4CE /* finalTourGuideSQLUITestsLaunchTests.swift */,
+				BB42B3602BB302840065A8A1 /* SQLite.swift-master */,
 			);
 			path = finalTourGuideSQLUITests;
 			sourceTree = "<group>";
@@ -257,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */,
 				BB1C0D632BB2FE0F00F0E4CE /* ContentView.swift in Sources */,
+				BB42B3632BB302B30065A8A1 /* DatabaseManager.swift in Sources */,
 				BB1C0D612BB2FE0F00F0E4CE /* finalTourGuideSQLApp.swift in Sources */,
+				BB42B3672BB305EE0065A8A1 /* AsyncImageView.swift in Sources */,
+				BB42B3652BB305330065A8A1 /* imageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
