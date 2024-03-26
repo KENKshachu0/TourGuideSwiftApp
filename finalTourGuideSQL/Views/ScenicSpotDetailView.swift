@@ -32,5 +32,5 @@ struct ScenicSpotDetailView: View {
     }
 }
 #Preview {
-    ScenicSpotDetailView(scenicSpot: ScenicSpot(id: 1, title: "长城", description: "中国长城是历史悠久的防御工事。", imageUrl: "https://s2.loli.net/2024/03/26/7xJZjXgoFzeMA8T.jpg"))
+    ScenicSpotDetailView(scenicSpot: ScenicSpot(id: 1, title: "裕民", description: "新疆塔城边境的县城。", imageUrl: "https://s2.loli.net/2024/03/26/7xJZjXgoFzeMA8T.jpg"))
 }

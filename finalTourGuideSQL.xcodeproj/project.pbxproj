@@ -18,6 +18,9 @@
 		BB42B3652BB305330065A8A1 /* imageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3642BB305330065A8A1 /* imageManager.swift */; };
 		BB42B3672BB305EE0065A8A1 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */; };
 		BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */; };
+		BB42B3752BB318230065A8A1 /* ShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3742BB318230065A8A1 /* ShoppingView.swift */; };
+		BB42B3772BB3183A0065A8A1 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3762BB3183A0065A8A1 /* WeatherView.swift */; };
+		BB42B37A2BB31BB20065A8A1 /* SQLToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3792BB31BB20065A8A1 /* SQLToggleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		BB42B3642BB305330065A8A1 /* imageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageManager.swift; sourceTree = "<group>"; };
 		BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenicSpotDetailView.swift; sourceTree = "<group>"; };
+		BB42B3742BB318230065A8A1 /* ShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingView.swift; sourceTree = "<group>"; };
+		BB42B3762BB3183A0065A8A1 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		BB42B3792BB31BB20065A8A1 /* SQLToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLToggleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				BB1C0D602BB2FE0F00F0E4CE /* finalTourGuideSQLApp.swift */,
-				BB42B3622BB302B30065A8A1 /* DatabaseManager.swift */,
-				BB1C0D622BB2FE0F00F0E4CE /* ContentView.swift */,
-				BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */,
-				BB42B3642BB305330065A8A1 /* imageManager.swift */,
+				BB42B3782BB318A30065A8A1 /* Models */,
+				BB42B3732BB317F70065A8A1 /* Views */,
 				BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */,
 				BB1C0D642BB2FE1000F0E4CE /* Assets.xcassets */,
 				BB1C0D662BB2FE1000F0E4CE /* Preview Content */,
@@ -139,6 +143,27 @@
 				BB42B3602BB302840065A8A1 /* SQLite.swift-master */,
 			);
 			path = finalTourGuideSQLUITests;
+			sourceTree = "<group>";
+		};
+		BB42B3732BB317F70065A8A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB1C0D622BB2FE0F00F0E4CE /* ContentView.swift */,
+				BB42B3792BB31BB20065A8A1 /* SQLToggleView.swift */,
+				BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */,
+				BB42B3742BB318230065A8A1 /* ShoppingView.swift */,
+				BB42B3762BB3183A0065A8A1 /* WeatherView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB42B3782BB318A30065A8A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB42B3622BB302B30065A8A1 /* DatabaseManager.swift */,
+				BB42B3642BB305330065A8A1 /* imageManager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,11 +297,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */,
+				BB42B37A2BB31BB20065A8A1 /* SQLToggleView.swift in Sources */,
 				BB1C0D632BB2FE0F00F0E4CE /* ContentView.swift in Sources */,
 				BB42B3632BB302B30065A8A1 /* DatabaseManager.swift in Sources */,
 				BB1C0D612BB2FE0F00F0E4CE /* finalTourGuideSQLApp.swift in Sources */,
+				BB42B3752BB318230065A8A1 /* ShoppingView.swift in Sources */,
 				BB42B3672BB305EE0065A8A1 /* AsyncImageView.swift in Sources */,
 				BB42B3652BB305330065A8A1 /* imageManager.swift in Sources */,
+				BB42B3772BB3183A0065A8A1 /* WeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
