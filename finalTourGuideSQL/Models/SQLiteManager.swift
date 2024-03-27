@@ -113,9 +113,27 @@ class DatabaseManager {
         return spots
     }
     
-    
+    //删除
+    func deleteScenicSpot(byId id: Int) {
+        let deleteStatementString = "DELETE FROM ScenicSpots WHERE Id = ?;"
+        var deleteStatement: OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+            sqlite3_bind_int(deleteStatement, 1, Int32(id))
+            
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                print("Successfully deleted spot")
+            } else {
+                print("delete spot failed")
+            }
+        } else {
+            print("DELETE statement could not be prepared.")
+        }
+        sqlite3_finalize(deleteStatement)
+    }
     
     
 }
 
 //数据库文件保存路径为：/Users/kenk/Library/Developer/CoreSimulator/Devices/4D4E4B1E-7F6F-4E7F-8A3E-0D6F6A7B4E3B/data/Containers/Data/Application/1A3C4C6D-6F7F-4E7F-8A3E-0D6F6A7B4E3B/Documents/ScenicSpots.sqlite
+
