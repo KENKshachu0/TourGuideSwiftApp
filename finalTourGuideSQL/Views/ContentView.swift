@@ -12,6 +12,7 @@ struct ContentView: View {
     private var dbManager = DatabaseManager()
     
     var body: some View {
+        
         TabView{
             NavigationView {
                 List(scenicSpots) { spot in
@@ -53,9 +54,15 @@ struct ContentView: View {
                 Image(systemName: "person")
                 Text("我的")
             }
+            TicketView(ticket: Ticket(type: "成人票", price: "¥100"))
+            .tabItem {
+                Image(systemName: "doc.text")
+                Text("票据")
+            }
         }
         .onAppear {
             scenicSpots = dbManager.fetchAllScenicSpots()
+            
         }
     }
 }

@@ -30,7 +30,7 @@ struct SQLToggleView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                Button("Save Scenic Spot") {
+                Button("保存景点数据") {
                     let newSpot = ScenicSpot(id: UUID().hashValue, title: title, description: description, imageUrl: imageUrl)
                     dbManager.insertScenicSpot(spot: newSpot)
                     
@@ -46,25 +46,40 @@ struct SQLToggleView: View {
                 
                 Divider()
                 
-                Button("Load Scenic Spots") {
+                Button("加载景点数据") {
                     self.scenicSpots = dbManager.fetchAllScenicSpots()
                 }
                 
-                List(scenicSpots) { spot in
-                    VStack(alignment: .leading) {
-                        Text(spot.title)
-                            .font(.headline)
-                        Text(spot.description)
-                            .font(.subheadline)
-                            .lineLimit(3)
+                List {
+                    ForEach(scenicSpots) { spot in
+                        VStack(alignment: .leading) {
+                            Text(spot.title)
+                                .font(.headline)
+                            Text(spot.description)
+                                .font(.subheadline)
+                                .lineLimit(3)
+                        }
                     }
+                    .onDelete(perform: deleteSpot)
                 }
             }
-            //.navigationTitle("插入数据库")
+            .navigationTitle("插入数据库")
         }
     }
+    
+    func deleteSpot(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let spotId = scenicSpots[index].id
+            dbManager.deleteScenicSpot(byId: spotId)
+        }
+        scenicSpots.remove(atOffsets: offsets)
+    }
+    
+    
 }
+
 
 #Preview {
     SQLToggleView()
 }
+
