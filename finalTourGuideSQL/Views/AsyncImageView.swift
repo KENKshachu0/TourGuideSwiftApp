@@ -19,7 +19,6 @@ struct AsyncImageView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             } else {
-                // 在图片加载时显示的占位符
                 Color.gray
             }
         }
@@ -29,3 +28,6 @@ struct AsyncImageView: View {
     }
 }
 
+#Preview {
+    AsyncImageView(urlString: "https://s2.loli.net/2024/03/26/7xJZjXgoFzeMA8T.jpg")
+}

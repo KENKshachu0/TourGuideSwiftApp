@@ -9,17 +9,25 @@ import SwiftUI
 import PassKit
 import CoreImage.CIFilterBuiltins
 
+class TicketViewModel: ObservableObject {
+    @Published var ticket: Ticket
+    
+    init(ticket: Ticket) {
+        self.ticket = ticket
+    }
+}
+
 struct TicketView: View {
-    let ticket: Ticket
+    @ObservedObject var viewModel: TicketViewModel
     @State private var qrCodeImage: UIImage?
     
     var body: some View {
         VStack {
             Text("支付成功！")
                 .font(.headline)
-            Text("您的\(ticket.type)已准备好")
+            Text("您的\(viewModel.ticket.type)已准备好")
                 .font(.title2)
-            Text("票价: \(ticket.price)")
+            Text("票价: \(viewModel.ticket.price)")
             
             if let qrCodeImage = qrCodeImage {
                 Image(uiImage: qrCodeImage)
@@ -39,7 +47,7 @@ struct TicketView: View {
             .cornerRadius(8)
         }
         .onAppear {
-            qrCodeImage = generateQRCode(from: "Ticket: \(ticket.type), Price: \(ticket.price)")
+            qrCodeImage = generateQRCode(from: "Ticket: \(viewModel.ticket.type), Price: \(viewModel.ticket.price)")
         }
     }
     
@@ -71,7 +79,7 @@ struct Ticket {
 
 struct TicketView_Previews: PreviewProvider {
     static var previews: some View {
-        TicketView(ticket: Ticket(type: "成人票", price: "¥100"))
+        TicketView(viewModel: TicketViewModel(ticket: Ticket(type: "成人票", price: "¥100")))
     }
 }
 

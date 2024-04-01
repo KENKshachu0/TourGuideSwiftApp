@@ -34,6 +34,10 @@ struct ContentView: View {
                     }
                 }
                 .navigationTitle("景点介绍")
+                .onAppear {
+                    // 当首页出现时，刷新景点信息
+                    scenicSpots = dbManager.fetchAllScenicSpots()
+                }
             }
             .tabItem {
                 Image(systemName: "photo.on.rectangle.angled")
@@ -49,15 +53,15 @@ struct ContentView: View {
                 Image(systemName: "cart")
                 Text("门票购买")
             }
-            SQLToggleView()
+            ShoppingView()
+            .tabItem {
+                Image(systemName: "cart")
+                Text("特产购物")
+            }
+            LoginView()
             .tabItem {
                 Image(systemName: "person")
                 Text("我的")
-            }
-            TicketView(ticket: Ticket(type: "成人票", price: "¥100"))
-            .tabItem {
-                Image(systemName: "doc.text")
-                Text("票据")
             }
         }
         .onAppear {

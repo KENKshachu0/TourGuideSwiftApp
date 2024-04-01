@@ -11,13 +11,12 @@
 // }
 
 import SwiftUI
-import PassKit // PassKit用于Apple Pay
-
-import SwiftUI
+import PassKit
 
 struct ShoppingView: View {
     @State private var selectedTicketIndex = 0
-    let tickets = [("成人票", 100), ("儿童票", 50), ("家庭套票", 250)]
+    @State private var selectedTicket: Ticket?
+    let tickets = [("成人票", 100), ("儿童票", 50), ("团体票", 80)]
 
     var body: some View {
         VStack(spacing: 20) {
@@ -41,16 +40,38 @@ struct ShoppingView: View {
             
             Button(action: {
                 // 实际应用中调用支付
-                print("模拟支付过程")
+                print("模拟WeChat支付过程")
+                let ticketInfo = tickets[selectedTicketIndex]
+                selectedTicket = Ticket(type: ticketInfo.0, price: "¥\(ticketInfo.1)")
             }) {
                 HStack {
-                    Image(systemName: "creditcard.fill")
-                    Text("支付")
+                    Image(systemName: "dollarsign.circle")
+                    Text("微信支付")
                 }
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.blue)
                 .cornerRadius(8)
+            }
+            Button(action: {
+                // 实际应用中调用支付
+                print("模拟支付Apple Pay过程")
+                let ticketInfo = tickets[selectedTicketIndex]
+                selectedTicket = Ticket(type: ticketInfo.0, price: "¥\(ticketInfo.1)")
+            }) {
+                HStack {
+                    Image(systemName: "applelogo")
+                    Text("Apple Pay")
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(8)
+                
+                
+            }
+            if let selectedTicket = selectedTicket {
+                TicketView(viewModel: TicketViewModel(ticket: selectedTicket))
             }
         }
         .padding()

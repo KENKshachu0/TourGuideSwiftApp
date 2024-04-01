@@ -4,6 +4,9 @@
 //
 //  Created by KENK on 2024/3/26.
 //
+import Foundation
+import SQLite3
+
 
 struct ScenicSpot: Identifiable {
     var id: Int
@@ -11,10 +14,13 @@ struct ScenicSpot: Identifiable {
     var description: String
     var imageUrl: String
 }
+//account
+struct Credentials {
+    var username: String
+    var password: String
+}
 
 
-import Foundation
-import SQLite3
 
 class DatabaseManager {
     var db: OpaquePointer?
@@ -31,8 +37,8 @@ class DatabaseManager {
             print("error opening database")
         }
     }
-
     func createTable() {
+        //创建表的SQL语句
         let createTableString = """
         CREATE TABLE IF NOT EXISTS ScenicSpots(
         Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,7 +53,6 @@ class DatabaseManager {
         }
     }
     
-    // 添加更多的数据库操作方法（插入、查询等）
     //添加
     func insertScenicSpot(spot: ScenicSpot) {
         let insertStatementString = "INSERT INTO ScenicSpots (Title, Description, ImageUrl) VALUES (?, ?, ?);"
@@ -137,3 +142,4 @@ class DatabaseManager {
 
 //数据库文件保存路径为：/Users/kenk/Library/Developer/CoreSimulator/Devices/4D4E4B1E-7F6F-4E7F-8A3E-0D6F6A7B4E3B/data/Containers/Data/Application/1A3C4C6D-6F7F-4E7F-8A3E-0D6F6A7B4E3B/Documents/ScenicSpots.sqlite
 
+    
