@@ -27,6 +27,7 @@
 		BB42B3822BB41E590065A8A1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B3812BB41E590065A8A1 /* LocationManager.swift */; };
 		BB42B38B2BB4367F0065A8A1 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B38A2BB4367F0065A8A1 /* TicketView.swift */; };
 		BB42B38D2BB44AB70065A8A1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B38C2BB44AB70065A8A1 /* LoginView.swift */; };
+		BB4A98422BC4198F0044062B /* ShoppingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A98412BC4198F0044062B /* ShoppingView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		BB42B3812BB41E590065A8A1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BB42B38A2BB4367F0065A8A1 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		BB42B38C2BB44AB70065A8A1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BB4A98412BC4198F0044062B /* ShoppingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1C0D622BB2FE0F00F0E4CE /* ContentView.swift */,
+				BB4A98412BC4198F0044062B /* ShoppingView2.swift */,
 				BB42B3792BB31BB20065A8A1 /* SQLToggleView.swift */,
 				BB42B38C2BB44AB70065A8A1 /* LoginView.swift */,
 				BB42B38A2BB4367F0065A8A1 /* TicketView.swift */,
@@ -317,6 +320,7 @@
 				BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */,
 				BB42B3802BB41BA90065A8A1 /* Secrets.swift in Sources */,
 				BB42B37A2BB31BB20065A8A1 /* SQLToggleView.swift in Sources */,
+				BB4A98422BC4198F0044062B /* ShoppingView2.swift in Sources */,
 				BB42B38D2BB44AB70065A8A1 /* LoginView.swift in Sources */,
 				BB1C0D632BB2FE0F00F0E4CE /* ContentView.swift in Sources */,
 				BB42B3632BB302B30065A8A1 /* SQLiteManager.swift in Sources */,
