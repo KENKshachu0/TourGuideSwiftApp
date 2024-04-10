@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ShoppingView2: View {
+    @State private var shoppingList: [Product] = []
+    
     var body: some View {
+        
         NavigationView {
             ScrollView {
+                VStack {
+                    ShoppingSummaryView(shoppingList: shoppingList)
+                        .padding()
+                    
+                    Spacer()
+                }
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                     ForEach(products, id: \.id) { product in
-                        NavigationLink(destination: ProductDetailView(product: product)) {
+                        NavigationLink(destination: ProductDetailView(product: product, addToCart: { selectedProduct in
+                            shoppingList.append(selectedProduct)
+                        })) {
                             ProductCardView(product: product)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -23,9 +34,7 @@ struct ShoppingView2: View {
             }
             .navigationTitle("特产购物")
             
-            Text("请选择一个产品")
-                .foregroundColor(.gray)
-                .padding()
+            
         }
     }
 }
@@ -55,6 +64,8 @@ struct ProductCardView: View {
 
 struct ProductDetailView: View {
     let product: Product
+    let addToCart: (Product) -> Void
+    @State private var quantity: Int = 1
     
     var body: some View {
         VStack {
@@ -65,11 +76,58 @@ struct ProductDetailView: View {
             Text(product.description)
                 .padding()
             
+            Stepper(value: $quantity, in: 1...10) {
+                Text("数量: \(quantity)")
+            }
+            .padding()
+            
+            Button(action: {
+                let selectedProduct = Product(name: product.name, description: product.description)
+                addToCart(selectedProduct)
+            }) {
+                Text("加入购物车")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            
             Spacer()
         }
         .navigationTitle(product.name)
     }
 }
+
+struct ShoppingSummaryView: View {
+    let shoppingList: [Product]
+    
+    var totalPrice: Double {
+        let pricePerProduct = 10.0 // 每个产品的价格
+        return Double(shoppingList.count) * pricePerProduct
+    }
+    
+    var body: some View {
+        VStack {
+            Text("购物车")
+                .font(.title)
+                .padding()
+            
+            List {
+                ForEach(shoppingList, id: \.id) { product in
+                    Text("\(product.name)")
+                }
+            }
+            
+            Text("总价: \(totalPrice, specifier: "%.2f")元")
+                .font(.headline)
+                .padding()
+        }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+}
+
 
 struct Product: Identifiable {
     let id = UUID()

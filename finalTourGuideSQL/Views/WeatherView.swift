@@ -22,7 +22,6 @@ struct WeatherView: View {
 
             VStack {
                 HStack {
-                    // 添加定位按钮
                     Button(action: {
                         locationManager.requestLocation() // request4Location
                     }) {
