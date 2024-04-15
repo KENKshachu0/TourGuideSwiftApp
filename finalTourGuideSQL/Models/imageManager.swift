@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import UIKit
-// 用于加载图片
+
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     var cancellable: AnyCancellable?

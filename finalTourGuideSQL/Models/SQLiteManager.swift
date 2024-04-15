@@ -7,20 +7,21 @@
 import Foundation
 import SQLite3
 
+//account
+struct Credentials {
+    var username: String
+    var password: String
+}
 
 struct ScenicSpot: Identifiable {
     var id: Int
     var title: String
     var description: String
     var imageUrl: String
-    var desLat: Double
-    var desLon: Double
+    var longitude: Double
+    var latitude: Double
 }
-//account
-struct Credentials {
-    var username: String
-    var password: String
-}
+
 
 class DatabaseManager {
     var db: OpaquePointer?
@@ -34,19 +35,27 @@ class DatabaseManager {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("ScenicSpots.sqlite")
 
-        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+        let openResult = sqlite3_open(fileURL.path, &db)
+        if openResult != SQLITE_OK {
             print("error opening database")
+            print("SQLite error code: \(openResult)")
+            if let errmsg = sqlite3_errmsg(db) {
+                print("SQLite error message: \(String(cString: errmsg))")
+            }
+        } else {
+            print("Database opened successfully")
         }
     }
+
     func createTable() {
         let createTableString = """
         CREATE TABLE IF NOT EXISTS ScenicSpots(
         Id INTEGER PRIMARY KEY AUTOINCREMENT,
         Title CHAR(255),
         Description TEXT,
-        ImageUrl CHAR(255)),
-        DesLat DOUBLE,
-        DesLon DOUBLE;
+        ImageUrl CHAR(255),
+        Longitude REAL,
+        Latitude REAL);
         """
 
         if sqlite3_exec(db, createTableString, nil, nil, nil) != SQLITE_OK {
@@ -56,23 +65,28 @@ class DatabaseManager {
     }
     
     func insertScenicSpot(spot: ScenicSpot) {
-        let insertStatementString = "INSERT INTO ScenicSpots (Title, Description, ImageUrl, DesLat, DesLon) VALUES (?, ?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO ScenicSpots (Title, Description, ImageUrl, Longitude, Latitude) VALUES (?, ?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
 
+        print("Insert statement string: \(insertStatementString)")
+
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_text(insertStatement, 1, (spot.title as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 2, (spot.description as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 3, (spot.imageUrl as NSString).utf8String, -1, nil)
-            sqlite3_bind_double(insertStatement, 4, spot.desLat)
-            sqlite3_bind_double(insertStatement, 5, spot.desLon)
+            sqlite3_bind_text(insertStatement, 1, (spot.title + "\0" as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, (spot.description + "\0" as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, (spot.imageUrl + "\0" as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(insertStatement, 4, spot.longitude)
+            sqlite3_bind_double(insertStatement, 5, spot.latitude)
 
             if sqlite3_step(insertStatement) != SQLITE_DONE {
                 print("error inserting row")
             }
         } else {
-            print("error preparing insert statement")
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert statement: \(errmsg)")
         }
     }
+
+
     
     func queryScenicSpots() -> [ScenicSpot] {
         let queryStatementString = "SELECT * FROM ScenicSpots;"
@@ -85,10 +99,10 @@ class DatabaseManager {
                 let title = String(cString: sqlite3_column_text(queryStatement, 1))
                 let description = String(cString: sqlite3_column_text(queryStatement, 2))
                 let imageUrl = String(cString: sqlite3_column_text(queryStatement, 3))
-                let desLat = Double(sqlite3_column_double(queryStatement, 4))
-                let desLon = Double(sqlite3_column_double(queryStatement, 5))
+                let longitude = sqlite3_column_double(queryStatement, 4)
+                let latitude = sqlite3_column_double(queryStatement, 5)
 
-                spots.append(ScenicSpot(id: id, title: title, description: description, imageUrl: imageUrl,desLat:desLat,desLon:desLon))
+                spots.append(ScenicSpot(id: id, title: title, description: description, imageUrl: imageUrl, longitude: longitude, latitude: latitude))
             }
         } else {
             print("SELECT statement could not be prepared")
@@ -108,10 +122,10 @@ class DatabaseManager {
                 let title = String(cString: sqlite3_column_text(queryStatement, 1))
                 let description = String(cString: sqlite3_column_text(queryStatement, 2))
                 let imageUrl = String(cString: sqlite3_column_text(queryStatement, 3))
-                let desLat = Double(sqlite3_column_double(queryStatement, 4))
-                let desLon = Double(sqlite3_column_double(queryStatement, 5))
+                let longitude = sqlite3_column_double(queryStatement, 4)
+                let latitude = sqlite3_column_double(queryStatement, 5)
 
-                spots.append(ScenicSpot(id: id, title: title, description: description, imageUrl: imageUrl,desLat:desLat,desLon:desLon))
+                spots.append(ScenicSpot(id: id, title: title, description: description, imageUrl: imageUrl, longitude: longitude, latitude: latitude))
             }
         } else {
             print("SELECT statement could not be prepared")
