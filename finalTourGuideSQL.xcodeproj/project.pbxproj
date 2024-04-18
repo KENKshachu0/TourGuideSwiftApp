@@ -28,8 +28,6 @@
 		BB42B38B2BB4367F0065A8A1 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B38A2BB4367F0065A8A1 /* TicketView.swift */; };
 		BB42B38D2BB44AB70065A8A1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42B38C2BB44AB70065A8A1 /* LoginView.swift */; };
 		BB4A98422BC4198F0044062B /* ShoppingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A98412BC4198F0044062B /* ShoppingView2.swift */; };
-		BB4A98442BC41BAB0044062B /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A98432BC41BAB0044062B /* Shopping.swift */; };
-		BB93DE182BC6B9A400A99E57 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93DE172BC6B9A400A99E57 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +73,6 @@
 		BB42B38A2BB4367F0065A8A1 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		BB42B38C2BB44AB70065A8A1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BB4A98412BC4198F0044062B /* ShoppingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingView2.swift; sourceTree = "<group>"; };
-		BB4A98432BC41BAB0044062B /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
-		BB93DE172BC6B9A400A99E57 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,12 +164,10 @@
 			children = (
 				BB1C0D622BB2FE0F00F0E4CE /* ContentView.swift */,
 				BB4A98412BC4198F0044062B /* ShoppingView2.swift */,
-				BB4A98432BC41BAB0044062B /* Shopping.swift */,
 				BB42B3792BB31BB20065A8A1 /* SQLToggleView.swift */,
 				BB42B38C2BB44AB70065A8A1 /* LoginView.swift */,
 				BB42B38A2BB4367F0065A8A1 /* TicketView.swift */,
 				BB42B3682BB30AC30065A8A1 /* ScenicSpotDetailView.swift */,
-				BB93DE172BC6B9A400A99E57 /* MapView.swift */,
 				BB42B3742BB318230065A8A1 /* ShoppingView.swift */,
 				BB42B3762BB3183A0065A8A1 /* WeatherView.swift */,
 				BB42B3662BB305EE0065A8A1 /* AsyncImageView.swift */,
@@ -325,12 +319,10 @@
 			files = (
 				BB42B3692BB30AC30065A8A1 /* ScenicSpotDetailView.swift in Sources */,
 				BB42B3802BB41BA90065A8A1 /* Secrets.swift in Sources */,
-				BB4A98442BC41BAB0044062B /* Shopping.swift in Sources */,
 				BB42B37A2BB31BB20065A8A1 /* SQLToggleView.swift in Sources */,
 				BB4A98422BC4198F0044062B /* ShoppingView2.swift in Sources */,
 				BB42B38D2BB44AB70065A8A1 /* LoginView.swift in Sources */,
 				BB1C0D632BB2FE0F00F0E4CE /* ContentView.swift in Sources */,
-				BB93DE182BC6B9A400A99E57 /* MapView.swift in Sources */,
 				BB42B3632BB302B30065A8A1 /* SQLiteManager.swift in Sources */,
 				BB42B37C2BB41B370065A8A1 /* WeatherModel.swift in Sources */,
 				BB1C0D612BB2FE0F00F0E4CE /* finalTourGuideSQLApp.swift in Sources */,

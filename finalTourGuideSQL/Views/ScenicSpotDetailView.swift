@@ -27,7 +27,7 @@ struct ScenicSpotDetailView: View {
                     let longitude = scenicSpot.longitude
                         // Construct the map URL with the destination coordinates
                         if let url = URL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)") {
-                            // Open Apple Maps for navigation
+                            // Open AppleMap for navigation
                             UIApplication.shared.open(url)
                         }
                                     }) {
