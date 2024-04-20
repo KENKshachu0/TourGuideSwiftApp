@@ -1,0 +1,6 @@
+framework module Pods_finalTourGuideSQLTests {
+  umbrella header "Pods-finalTourGuideSQLTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

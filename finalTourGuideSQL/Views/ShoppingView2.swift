@@ -15,8 +15,14 @@ struct ShoppingView2: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ShoppingSummaryView(shoppingList: shoppingList)
-                        .padding()
+                    //navigationlink to shopping summary
+                    NavigationLink(destination: ShoppingSummaryView(shoppingList: shoppingList)) {
+                        Text("查看购物车")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                     Spacer()
                 }
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
@@ -47,7 +53,6 @@ struct ProductCardView: View {
                 .font(.title)
                 .foregroundColor(.black)
                 .padding(.bottom, 4)
-            AsyncImageView(urlString: "https://s2.loli.net/2024/03/26/7xJZjXgoFzeMA8T.jpg")
             Text(product.description)
                 .foregroundColor(.gray)
                 .lineLimit(3)
